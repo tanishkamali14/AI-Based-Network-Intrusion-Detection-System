@@ -1,0 +1,27 @@
+2026-03-20 14:54:48,758 | INFO | Logging initialized.
+2026-03-20 14:54:48,760 | INFO | Loading processed dataset: data\processed\cleaned_unbalanced_noise.csv
+2026-03-20 14:55:50,341 | INFO | Loaded rows=2,563,107, cols=79
+2026-03-20 14:55:50,352 | INFO | Sampling 50% of dataset (random_state=42)...
+2026-03-20 14:55:52,813 | INFO | Sampled without Day column. rows=1,281,554
+2026-03-20 14:55:52,910 | WARNING | Day column NOT present in processed CSV; temporal split is unspecified. Using index-based temporal split fallback.
+2026-03-20 14:55:53,369 | INFO | Index-based temporal split: trainval=rows[0:1025243); test=rows[1025243:1281554)
+2026-03-20 14:55:53,369 | INFO | Train/Val rows=1,025,243; Test rows=256,311
+2026-03-20 14:55:54,199 | INFO | Stratified train/val split: train=820,194, val=205,049
+2026-03-20 14:55:54,249 | WARNING | Capping train_benign(OCSVM) rows from 82,355 -> 50,000 (compute safety cap).
+2026-03-20 14:55:54,443 | INFO | Printed executive summary.
+2026-03-20 14:55:54,444 | INFO | Fitting IsolationForest (benign-only)...
+2026-03-20 14:56:06,540 | INFO | Fitting LocalOutlierFactor (novelty=True, benign-only)...
+2026-03-20 14:57:56,150 | INFO | Fitting OneClassSVM (benign-only) [optional]...
+2026-03-20 15:00:09,219 | WARNING | Autoencoder requested but TensorFlow is not installed. Skipping.
+2026-03-20 15:00:09,219 | INFO | Building ensemble (min-max normalize on validation -> combine -> threshold)...
+2026-03-20 15:01:46,007 | INFO | Saved metrics: outputs\anomaly_detection\run_20260320_145448\reports\metrics_anomaly_detection.csv
+2026-03-20 15:01:46,009 | INFO | Saved hyperparameter table: outputs\anomaly_detection\run_20260320_145448\reports\detector_hyperparameters.csv
+2026-03-20 15:01:47,321 | INFO | Saved test scores: outputs\anomaly_detection\run_20260320_145448\reports\test_scores.csv
+2026-03-20 15:01:47,362 | INFO | Exported top anomalies: outputs\anomaly_detection\run_20260320_145448\exports\top_500_anomalies_by_ensemble.csv
+2026-03-20 15:01:47,362 | INFO | Run complete.
+2026-03-20 15:01:47,362 | INFO | Run directory: outputs\anomaly_detection\run_20260320_145448
+2026-03-20 15:01:47,363 | INFO | Key outputs:
+2026-03-20 15:01:47,363 | INFO |   - Metrics CSV: outputs\anomaly_detection\run_20260320_145448\reports\metrics_anomaly_detection.csv
+2026-03-20 15:01:47,363 | INFO |   - Hyperparameters CSV: outputs\anomaly_detection\run_20260320_145448\reports\detector_hyperparameters.csv
+2026-03-20 15:01:47,363 | INFO |   - Plots dir: outputs\anomaly_detection\run_20260320_145448\plots
+2026-03-20 15:01:47,364 | INFO |   - Models dir: outputs\anomaly_detection\run_20260320_145448\models

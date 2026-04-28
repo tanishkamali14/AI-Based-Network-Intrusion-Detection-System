@@ -1,0 +1,5 @@
+detector,n_estimators,max_samples,contamination,n_neighbors,metric,novelty,kernel,gamma,nu,cache_size_mb,method,members,weights,threshold_method
+isolation_forest,200.0,auto,auto,,,,,,,,,,,
+lof,,,,35.0,minkowski,True,,,,,,,,
+oneclass_svm,,,,,,,rbf,scale,0.05,500.0,,,,
+ensemble,,,,,,,,,,,mean,"isolation_forest,lof,oneclass_svm","{""isolation_forest"": 1.0, ""lof"": 1.0, ""oneclass_svm"": 1.0}",max_f1
