@@ -1,34 +1,57 @@
-# AI-Based Intrusion Detection System for Detecting Evolving and Zero-Day Attacks
-
-## Overview
-
-This project implements a hybrid AI-based Network Intrusion Detection System (NIDS) designed to detect both known attacks and previously unseen or zero-day attack behavior.
-
-Traditional intrusion detection systems often rely on static signatures or models trained on historical attack patterns. However, real-world attackers continuously change their techniques, which creates concept drift and makes static detection unreliable. This project addresses that problem by combining supervised machine learning models with unsupervised anomaly detection techniques.
-
-The system uses the CIC-IDS2017 dataset and evaluates multiple detection models using precision, recall, F1-score, ROC-AUC, PR-AUC, and confusion matrices.
+# 🚨 AI-Based Intrusion Detection System  
+### Detecting Evolving and Zero-Day Attacks using Hybrid Machine Learning
 
 ---
 
-## Project Goals
+## 📌 Overview
 
-The main goals of this project are:
+This project implements a **hybrid AI-based Network Intrusion Detection System (NIDS)** designed to detect both:
 
-- Detect known network attacks using supervised machine learning
-- Identify unknown or zero-day-like behavior using anomaly detection
-- Compare supervised and unsupervised model performance
-- Build a hybrid IDS architecture that improves detection coverage
-- Analyze the trade-off between detection accuracy and false positives
-- Provide a dashboard-based view of model results and alerts
+- **Known attacks** using supervised machine learning  
+- **Previously unseen (zero-day) attacks** using anomaly detection  
+
+Traditional intrusion detection systems rely on static signatures and historical attack data. However, in real-world environments:
+
+- Attack patterns evolve over time (**concept drift**)  
+- New attacks appear without prior signatures (**zero-day attacks**)  
+
+To address this, this project combines **supervised classification** and **anomaly detection** into a unified architecture that improves detection coverage.
 
 ---
 
-## System Architecture
+## 🎯 Project Objectives
+
+- Detect known network attacks with high accuracy  
+- Identify anomalous or previously unseen behavior  
+- Compare supervised and anomaly-based detection approaches  
+- Design a hybrid IDS architecture for improved coverage  
+- Analyze trade-offs between detection accuracy and false positives  
+- Provide an interactive dashboard for monitoring and analysis  
+
+---
+
+## 🧠 Key Results
+
+### Supervised Models
+- **Random Forest (Best Performer)**
+  - Precision: 0.9882  
+  - Recall: 0.9882  
+  - ROC-AUC: 0.9991  
+
+### Anomaly Detection (Ensemble)
+- Recall: ~0.998  
+- Precision: ~0.57  
+
+### Insight
+Supervised models provide high accuracy for known attacks, while anomaly detection ensures high recall for unknown threats. A hybrid approach improves overall coverage but introduces false positives.
+
+---
+
+## 🏗️ System Architecture
 
 ```text
                          ┌──────────────────────────┐
                          │   CIC-IDS2017 Dataset     │
-                         │  Network Flow Records     │
                          └─────────────┬────────────┘
                                        │
                                        ▼
@@ -48,7 +71,6 @@ The main goals of this project are:
         │  Known Attack Detection│           │  Zero-Day Detection     │
         └───────────┬───────────┘           └────────────┬───────────┘
                     │                                    │
-                    │                                    │
         ┌───────────▼───────────┐           ┌────────────▼───────────┐
         │ Random Forest          │           │ Isolation Forest        │
         │ Gradient Boosting      │           │ Local Outlier Factor    │
@@ -64,29 +86,55 @@ The main goals of this project are:
                          └─────────────┬────────────┘
                                        ▼
                          ┌──────────────────────────┐
-                         │  Alerts / Reports / UI    │
-                         │  Streamlit Dashboard      │
+                         │ Alerts / Dashboard Output │
                          └──────────────────────────┘
 
+### **Dataset**
 
-##  Dataset
+CIC-IDS2017 Dataset (UNB)
 
-This project uses the CIC-IDS2017 dataset from the Canadian Institute for Cybersecurity.
-
-The dataset contains realistic benign and attack network traffic, including:
-
-Brute force attacks
-DoS attacks
-DDoS attacks
-Botnet traffic
-Web attacks
-Infiltration attempts
+Contains realistic network traffic with multiple attack scenarios:
+DoS / DDoS
+Brute Force
+Botnet
+Web Attacks
+Infiltration
 Heartbleed
 Benign traffic
 
-The raw and processed dataset files are not included in this repository due to size limitations.
+⚠️ The dataset is not included in this repository due to size constraints.
 
-## Repository Structure
+## ⚙️ **Methodology**
+
+### **Data Preprocessing**
+
+Merged multiple daily CSV files
+Removed null, infinite, and duplicate values
+Converted labels to binary (Attack vs Benign)
+Applied feature scaling (MinMaxScaler)
+Used SMOTE for balancing supervised training data
+Created separate datasets for supervised and anomaly detection
+
+### **Supervised Models**
+
+Random Forest
+Gradient Boosting
+Balanced Random Forest
+
+### **Anomaly Detection Models**
+
+Isolation Forest
+Local Outlier Factor (LOF)
+One-Class SVM
+Autoencoder
+
+### **Hybrid Approach**
+
+Combines supervised predictions with anomaly scores
+Applies score normalization and thresholding
+Produces final alerts for analysis
+
+## **Repository Structure**
 
 NIDS/
 │
@@ -95,7 +143,6 @@ NIDS/
 │   ├── ensemble_minmax_scalers.pkl
 │   ├── isolation_forest.pkl
 │   ├── oneclass_svm.pkl
-│   └── README.md
 │
 ├── outputs/
 │   ├── reports/
@@ -109,67 +156,87 @@ NIDS/
 │   └── dashboard/
 │
 ├── notebooks/
-│
 ├── requirements.txt
-├── .gitignore
 └── README.md
 
-## Files Not Included
+## ⚠️ **Files Not Included**
 
-Some files are intentionally not uploaded to GitHub.
+Due to size and security constraints:
 
-## Large Model Files
-
-The following model files were not uploaded because of GitHub file size limits:
+Models
 
 best_random_forest.pkl
-best_rf.pkl
 best_balanced_rf.pkl
 lof_novelty.pkl
 
-# Setup Instructions
-1. Clone the repository
+Data
+
+CIC-IDS2017 dataset
+
+Environment
+
+.env file
+
+## ▶️ **Setup Instructions**
+
+-- Clone Repository
 
 git clone https://github.com/your-username/NIDS.git
 cd NIDS
 
-2. Create a virtual environment
-python -m venv .venv
+-- Create Virtual Environment
 
-Activate it:
+python -m venv .venv
+Activate Environment
 
 # Windows
 .venv\Scripts\activate
-# macOS / Linux
+
+# macOS/Linux
 source .venv/bin/activate
-3. Install dependencies
+
+-- Install Dependencies
+
 pip install -r requirements.txt
-4. Download the dataset
 
-Download CIC-IDS2017 from:
-
-https://www.unb.ca/cic/datasets/ids-2017.html
-
-Place the raw CSV files inside:
-
-data/raw/
-
-5. Run preprocessing
+-- Run Pipeline
 
 python src/preprocessing/preprocess.py
-
-6. Train supervised models
-
 python src/training/train_supervised.py
-
-7. Train anomaly detection models
-
 python src/training/train_anomaly.py
-
-8. Run evaluation
-
 python src/evaluation/evaluate_models.py
 
-9. Launch dashboard
+-- Run Dashboard
 
 streamlit run src/dashboard/app.py
+
+## 📊 **Dashboard**
+
+### The Streamlit dashboard provides:
+
+Model performance comparison
+ROC and PR curve visualization
+Anomaly detection insights
+Threshold tuning
+Interactive exploration of results
+
+### ⚠️ **Limitations**
+
+High false positive rate in anomaly detection
+Evaluation limited to offline dataset
+No automated concept drift handling
+Limited explainability integration
+Increased computational complexity
+
+### 🚀 **Future Work**
+
+Real-time streaming IDS (Kafka / Spark)
+Concept drift detection and automated retraining
+Deep learning-based anomaly detection
+Explainable AI (SHAP, LIME)
+Integration with SIEM systems
+
+👩‍💻 Author
+
+Tanishka Ganesh Mali
+M.S. Cybersecurity — Penn State
