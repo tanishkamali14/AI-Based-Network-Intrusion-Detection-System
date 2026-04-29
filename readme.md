@@ -3,6 +3,8 @@
 
 ---
 
+
+
 ## Overview
 
 This project implements a hybrid AI-based Network Intrusion Detection System (NIDS) designed to detect both known attacks and previously unseen (zero-day) attack behavior.
@@ -95,6 +97,9 @@ The dataset includes realistic network traffic across multiple attack scenarios:
 
 Note: The dataset is not included in this repository due to size constraints.
 
+### Sample Dataset Access
+
+[Download Processed Data](https://drive.google.com/drive/folders/13m3GdLQcf_sg57Zg17I0IYoTuHm76BHH?usp=drive_link)
 ---
 
 ## Methodology
@@ -163,7 +168,9 @@ Due to size and security constraints:
 ### Models
 - best_random_forest.pkl  
 - best_balanced_rf.pkl  
-- lof_novelty.pkl  
+- lof_novelty.pkl
+
+[Download Models](https://drive.google.com/drive/folders/1rwCJfJu-m7FJU78wQVI81M6LbqCCOSfl?usp=drive_link)
 
 ### Data
 - CIC-IDS2017 dataset  
@@ -215,6 +222,22 @@ The dashboard provides:
 - Interactive exploration of results
 
 ## Project Demonstration
+
+### Demo Video
+A walkthrough of the system, including preprocessing, model execution, and dashboard visualization:
+
+[Watch Demo Video](https://drive.google.com/file/d/1XpHU2iggyiJwqI5ATdqMSRcKsQoG1KEI/view?usp=drive_link)
+
+### Dashboard Screenshots
+
+The following images demonstrate the Streamlit dashboard and model outputs:
+
+- Model performance comparison  
+- ROC and PR curve visualization  
+- Anomaly detection outputs  
+- Threshold-based filtering  
+
+[View Dashboard Images](https://drive.google.com/drive/folders/1GR9pZwjT9GBjfN-Eh9VkDJNZ5Nokb-oG?usp=drive_link)
 
 ### Dashboard Interface
 ![Dashboard](outputs/implementation/Dashboard.png)
