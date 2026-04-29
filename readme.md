@@ -212,7 +212,15 @@ The dashboard provides:
 - ROC and PR curve visualization  
 - Anomaly detection insights  
 - Threshold tuning  
-- Interactive exploration of results  
+- Interactive exploration of results
+
+## Project Demonstration
+
+### Dashboard Interface
+![Dashboard]()
+
+### Model Performance
+![Results](images/results.png)
 
 ---
 
@@ -248,7 +256,11 @@ The dashboard provides:
 - Concept drift detection and automated retraining  
 - Deep learning-based anomaly detection  
 - Explainable AI integration (SHAP, LIME)  
-- Integration with SIEM systems  
+- Integration with SIEM systems
+
+## Real-World Impact
+
+This system can help security analysts detect both known and unknown threats in dynamic environments. It demonstrates how hybrid machine learning approaches improve detection coverage compared to traditional IDS systems.
 
 ---
 
