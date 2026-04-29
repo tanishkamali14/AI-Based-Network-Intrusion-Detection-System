@@ -218,6 +218,8 @@ The dashboard provides:
 
 ### Dashboard Interface
 ![Dashboard](outputs/implementation/Dashboard.png)
+![Dashboard](outputs/implementation/CSV-Upload.png)
+
 
 ### Model Performance
 ![Results](images/results.png)
