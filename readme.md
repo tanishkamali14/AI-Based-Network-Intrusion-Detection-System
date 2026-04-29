@@ -217,7 +217,7 @@ The dashboard provides:
 ## Project Demonstration
 
 ### Dashboard Interface
-![Dashboard](outputs/implementation/Home-Dashboard.png)
+![Dashboard](outputs/implementation/Dashboard.png)
 
 ### Model Performance
 ![Results](images/results.png)
