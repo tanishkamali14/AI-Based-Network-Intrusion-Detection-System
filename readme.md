@@ -217,8 +217,7 @@ The dashboard provides:
 ## Project Demonstration
 
 ### Dashboard Interface
-![Dashboard](AI-Based-Network-Intrusion-Detection-System/outputs/implementation
-/Home - Dashboard.png)
+![Dashboard](outputs/implementation/Home - Dashboard.png)
 
 ### Model Performance
 ![Results](images/results.png)
