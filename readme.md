@@ -286,7 +286,9 @@ The following images demonstrate the Streamlit dashboard and model outputs:
 
 ## Real-World Impact
 
-This system can help security analysts detect both known and unknown threats in dynamic environments. It demonstrates how hybrid machine learning approaches improve detection coverage compared to traditional IDS systems.
+Intrusion detection systems are critical for modern network security, yet traditional approaches struggle with evolving threats and unseen attack patterns. 
+
+This project demonstrates how a hybrid machine learning architecture can improve detection coverage while highlighting practical trade-offs such as false positives and system complexity.
 
 ---
 
